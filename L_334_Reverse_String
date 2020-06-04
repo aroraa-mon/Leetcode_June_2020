@@ -1,0 +1,17 @@
+class Solution {
+public:
+    void revutil(int i, int j, vector<char>& s){
+        if(i >= j) return;
+        
+        char temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+        
+        revutil(i+1, j-1, s);
+    }
+    
+    void reverseString(vector<char>& s) {
+        int n = s.size();
+        revutil(0, n-1, s);
+    }
+};
